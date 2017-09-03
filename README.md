@@ -6,4 +6,4 @@ Fill Cycles in Lab Evaluation Sheet
 ![Screenshot](/screenshot.png?raw=true "Screenshot")
 
 # How to set up
-Create config.php and define variables(<a href="/config.php.example" target="_blank">refer config.php.example</a>)
+Create database and table(<a href="/table.sql" target="_blank">refer table.sql</a>) config.php and define variables(<a href="/config.php.example" target="_blank">refer config.php.example</a>)
