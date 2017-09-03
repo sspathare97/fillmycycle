@@ -1,0 +1,18 @@
+<?php
+if(file_exists('_nu')){
+	//local server
+	define('DB_HOST', '');
+	define('DB_USER', '');
+	define('DB_PASSWORD', '');
+	define('DB_NAME', '');
+}
+else{
+	define('DB_HOST', '');
+	define('DB_USER', '');
+	define('DB_PASSWORD', '');
+	define('DB_NAME', '');
+}
+$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+if (!$conn)
+    die();
+?>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Fill My Cycle</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body>
+
+<div class="container">
+	<h2 class="text-center text-primary mrg">Fill My Cycle</h2>
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3 col-xs-12 mrg">
+		<form class="form-inline" action="" onsubmit="return false">
+	    	<label>Cycle Marks: </label>
+	    	<input class="form-control" type="number" min="20" max="100" step="2" id="ip" />&nbsp;&nbsp;
+		  	<button type="submit" class="btn btn-success" onclick="check()">Generate</button>
+		</form>
+
+		<table class="table table-bordered table-hover table-responsive mrg">
+			<thead>
+				<tr>
+					<th rowspan="2">Par</th>
+					<th colspan="5">Perf</th>
+				</tr>
+				<tr>
+					<th class="c">E<br>5</th>
+					<th class="c">VG<br>4</th>
+					<th class="c">G<br>3</th>
+					<th class="c">A<br>2</th>
+					<th class="c">BA<br>1</th>
+				</tr>
+			</thead>
+			<tbody id="tbl">
+				<tr>
+					<th>TK<br>30</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>TD<br>30</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>LI<br>10</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>B<br>10</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>C<br>20</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="text-center">
+			<h4 class="dib">Cycles Generated:&nbsp;</h4><h2 class="dib mrg text-success" id="count">&nbsp;</h2>
+		</div>
+	</div>
+	<div class="text-center">
+		<h4 class="text-primary mrg">Designed and Developed by</h4>
+		<h3 class="text-success mrg">Sagar Pathare</h3><br/>
+	</div>
+</div>
+
+
+<div id="round" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Round off marks to <span id="marks"></span></h4><br/>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Okay</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="preload"></div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-97377225-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
