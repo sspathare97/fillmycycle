@@ -5,10 +5,25 @@
 	th.c{
 		width:16.66666667% !important;
 	}
+	th.d{
+		width:13% !important;
+	}
 	td,th{
 		text-align: center;
 		vertical-align: middle!important;
 	}
+<<<<<<< HEAD
+	table.ind{
+		display: inline-block;
+	}
+	hr{
+		margin: 5px 0;
+	}
+	input.input-sm{
+		width: 60px!important;
+	}
+=======
+>>>>>>> 4b89e6b0efc3a241c4afdd027cdddb3a0074e117
 	img[alt="www.000webhost.com"] {
 	    display: none;
 	}
@@ -23,11 +38,15 @@
 		margin-bottom: 0;
 		margin-top:10px; 
 	}
-	.dib{
-		display: inline-block;
+	.apk{
+		height: 50px;
+		margin: auto;
 	}
-	#count{
-		font-weight: bold;
+	table td, table th{
+		padding: 3px!important;
+	}
+	img{
+		height: 15px;
 	}
 	#preload { background: url(check.png) no-repeat -9999px -9999px; height: 1px; width: 1px;}
 }

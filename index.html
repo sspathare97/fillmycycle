@@ -5,85 +5,302 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="script.js"></script>
+	<link rel="stylesheet" href="style.css?v=11">
+	<script src="script.js?v=12"></script>
 </head>
 <body>
 
 <div class="container">
-	<h2 class="text-center text-primary mrg">Fill My Cycle</h2>
+	<h3 class="text-center text-primary mrg">Fill My Cycle</h3>
 	<div class="row">
-		<div class="col-sm-6 col-sm-offset-3 col-xs-12 mrg">
-		<form class="form-inline" action="" onsubmit="return false">
-	    	<label>Cycle Marks: </label>
-	    	<input class="form-control" type="number" min="20" max="100" step="2" id="ip" />&nbsp;&nbsp;
-		  	<button type="submit" class="btn btn-success" onclick="check()">Generate</button>
-		</form>
+		<div class="col-sm-6 col-sm-offset-3 col-xs-12">
+			<form class="form-inline" action="" onsubmit="return false">
+				<div class="row">
+					<h5 class="mrg">Need Help? <a class="btn btn-success btn-xs" href="#instructions">Click here to see instructions</a></h5>
+				</div>
+				<div class="row">
+					<div class="col-xs-6">
+					<table class="mrg ind">
+						<thead>
+							<tr>
+								<th colspan="2">Cycle 1</th>
+							</tr>
+							<tr>
+								<th><span id="c10">1</span>&nbsp;&nbsp;to&nbsp;</th>
+								<th><input class="form-control input-sm" type="number" min="1" max="15" step="1" value="" id="c11" maxlength="2" /></th>
+							</tr>
+							<tr>
+								<th colspan="2"><hr></th>
+							</tr>
+						</thead>
+						<tbody id="tbl01">
+							<tr>
+								<td>1</td>
+								<td><input class="form-control input-sm exp" type="number" min="0" max="100" step="1" maxlength="3"/></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td><input class="form-control input-sm exp" type="number" min="0" max="100" step="1" maxlength="3"/></td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td><input class="form-control input-sm exp" type="number" min="0" max="100" step="1" maxlength="3"/></td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td><input class="form-control input-sm exp" type="number" min="0" max="100" step="1" maxlength="3"/></td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td><input class="form-control input-sm exp" type="number" min="0" max="100" step="1" maxlength="3"/></td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class="col-xs-6">
+					<table class="mrg ind">
+						<thead>
+							<tr>
+								<th colspan="2">Cycle 2</th>
+							</tr>
+							<tr>
+								<th><span id="c20">6</span>&nbsp;&nbsp;to&nbsp;</th>
+								<th><input class="form-control input-sm" type="number" min="2" max="30" step="1" value="" id="c21" maxlength="2"/></th>
+							</tr>
+							<tr>
+								<th colspan="2"><hr></th>
+							</tr>
+						</thead>
+						<tbody id="tbl02">
+							<tr>
+								<td>6</td>
+								<td><input class="form-control input-sm exp" type="number" min="0" max="100" step="1" maxlength="3"/></td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td><input class="form-control input-sm exp" type="number" min="0" max="100" step="1" maxlength="3"/></td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td><input class="form-control input-sm exp" type="number" min="0" max="100" step="1" maxlength="3"/></td>
+							</tr>
+							<tr>
+								<td>9</td>
+								<td><input class="form-control input-sm exp" type="number" min="0" max="100" step="1" maxlength="3"/></td>
+							</tr>
+							<tr>
+								<td>10</td>
+								<td><input class="form-control input-sm exp" type="number" min="0" max="100" step="1" maxlength="3"/></td>
+							</tr>
+						</tbody>
+					</table>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-6">
+						<table class="ind" id="result">
+							<tr>
+								<td colspan="2">
+									<hr>
+								</td>
+							</tr>
+							<tr>
+								<td>Average</td>
+								<td>
+									<input class="form-control input-sm ip" type="number" min="20" max="100" step="2" id="ip1" />
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-xs-6">
+						<table class="ind">
+							<tr>
+								<td colspan="2">
+									<hr>
+								</td>
+							</tr>
+							<tr>
+								<td>Average</td>
+								<td>
+									<input class="form-control input-sm ip" type="number" min="20" max="100" step="2" id="ip2" />
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
 
-		<table class="table table-bordered table-hover table-responsive mrg">
-			<thead>
-				<tr>
-					<th rowspan="2">Par</th>
-					<th colspan="5">Perf</th>
-				</tr>
-				<tr>
-					<th class="c">E<br>5</th>
-					<th class="c">VG<br>4</th>
-					<th class="c">G<br>3</th>
-					<th class="c">A<br>2</th>
-					<th class="c">BA<br>1</th>
-				</tr>
-			</thead>
-			<tbody id="tbl">
-				<tr>
-					<th>TK<br>30</th>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th>TD<br>30</th>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th>LI<br>10</th>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th>B<br>10</th>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th>C<br>20</th>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</tbody>
-		</table>
-		</div>
-	</div>
-	<div class="row">
-		<div class="text-center">
-			<h4 class="dib">Cycles Generated:&nbsp;</h4><h2 class="dib mrg text-success" id="count">&nbsp;</h2>
+			<table class="table table-bordered table-hover table-responsive mrg">
+				<thead>
+					<tr>
+						<th>Par\Perf</th>
+						<th class="c">E (5)</th>
+						<th class="c">VG (4)</th>
+						<th class="c">G (3)</th>
+						<th class="c">A (2)</th>
+						<th class="c">BA (1)</th>
+					</tr>
+				</thead>
+				<tbody id="tbl1">
+					<tr>
+						<th>TK (30)</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th>TD (30)</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th>LI (10)</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th>B (10)</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th>C (20)</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table class="table table-bordered table-hover table-responsive mrg">
+				<thead>
+					<tr>
+						<th>Par\Perf</th>
+						<th class="c">E (5)</th>
+						<th class="c">VG (4)</th>
+						<th class="c">G (3)</th>
+						<th class="c">A (2)</th>
+						<th class="c">BA (1)</th>
+					</tr>
+				</thead>
+				<tbody id="tbl2">
+					<tr>
+						<th>TK (30)</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th>TD (30)</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th>LI (10)</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th>B (10)</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th>C (20)</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table class="table table-bordered table-hover table-responsive mrg">
+				<thead>
+					<tr>
+						<th>Cycle</th>
+						<th class="d">TK</th>
+						<th class="d">TD</th>
+						<th class="d">LI</th>
+						<th class="d">B</th>
+						<th class="d">C</th>
+						<th class="d">Total</th>
+					</tr>
+				</thead>
+				<tbody id="tbl3">
+					<tr>
+						<th>1</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th>2</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Total</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<th>Average</th>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<button type="reset" class="reset mrg btn btn-primary btn-sm">Reset</button>
+			</form>
+			<h3 class="text-primary" id="instructions">Instructions</h3>
+			<ul class="text-left">
+				<li>Enter cycle ranges, eg. Cycle 1: 1 to 5 and Cycle 2: 6 to 10; then for each experiment enter marks out of 100.</li>
+				<li>Alternatively, enter average marks out of 100 for both the cycles.</li>
+			</ul>
+			<a href='https://play.google.com/store/apps/details?id=com.sspathare97.fillmycycle&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target="_blank"><img alt='Get it on Google Play' class="apk" src='google-play-badge.png'/></a>
 		</div>
 	</div>
 	<div class="text-center">
@@ -91,19 +308,6 @@
 		<h3 class="mrg"><a class="text-success" href="mailto:sspathare97@gmail.com" target="_blank">Sagar Pathare</a></h3>
 		<h4><a href="https://github.com/sspathare97/fillmycycle" target="_blank">Check on GitHub</a></h4>
 	</div>
-</div>
-
-
-<div id="round" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Round off marks to <span id="marks"></span></h4><br/>
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Okay</button>
-      </div>
-    </div>
-  </div>
 </div>
 <div id="preload"></div>
 <script>
