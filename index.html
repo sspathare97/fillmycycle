@@ -8,8 +8,8 @@
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="style.css?v=13">
-	<script src="script.js?v=13"></script>
+	<link rel="stylesheet" href="style.css?v=14">
+	<script src="script.js?v=14"></script>
 </head>
 <body>
 
@@ -19,7 +19,7 @@
 		<div class="col-sm-6 col-sm-offset-3 col-xs-12">
 			<form class="form-inline" action="" onsubmit="return false">
 				<div class="row">
-					<h5 class="mrg">Need Help? <a class="btn btn-success btn-xs" href="#instructions">Click here to see instructions</a></h5>
+					<h5 class="mrg">Need Help? <button class="btn btn-success btn-xs instr-ref">Click here to see instructions</button></h5>
 				</div>
 				<div class="row">
 					<div class="col-xs-6">
@@ -129,6 +129,16 @@
 								</td>
 							</tr>
 						</table>
+					</div>
+				</div>
+				<br id="man_mode_br">
+				<div class="row">
+					<div class="col-xs-12">
+						<label>
+							<input type="checkbox" id="man_mode" />
+							Manual Check Input Mode
+						</label>
+						<button class="btn btn-success btn-xs instr-ref">New Feature!</button>
 					</div>
 				</div>
 
@@ -293,12 +303,13 @@
 					</tr>
 				</tbody>
 			</table>
-			<button type="reset" class="reset mrg btn btn-primary btn-sm">Reset</button>
+			<button class="reset mrg btn btn-primary btn-sm">Reset</button>
 			</form>
 			<h3 class="text-primary" id="instructions">Instructions</h3>
 			<ul class="text-left">
 				<li>Enter cycle ranges, eg. Cycle 1: 1 to 5 and Cycle 2: 6 to 10; then for each experiment enter marks out of 100.</li>
 				<li>Alternatively, enter average marks out of 100 for both the cycles.</li>
+				<li> <button class="btn btn-success btn-xs man-mode-ref">Manual Check Input Mode</button> - Click on the cells in the cycle table to check them and fill the cycle manually</li>
 			</ul>
 			<a href='https://play.google.com/store/apps/details?id=com.sspathare97.fillmycycle&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target="_blank"><img alt='Get it on Google Play' class="apk" src='google-play-badge.png'/></a>
 		</div>

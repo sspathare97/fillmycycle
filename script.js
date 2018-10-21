@@ -1,3 +1,5 @@
+var man_mode = false;
+
 function calculate(tbl,ip){
 	var marks=parseFloat(ip.value);
 	if(ip.value.length==2 && ip.value!="10" && marks<=20){
@@ -63,13 +65,8 @@ function calculate(tbl,ip){
 function check(){
 	var tbl1=document.getElementById("tbl1");
 	var tbl2=document.getElementById("tbl2");
-	var tbl3=document.getElementById("tbl3");
 	var ip1=document.getElementById("ip1");
 	var ip2=document.getElementById("ip2");
-	var tbl01=document.getElementById("tbl01");
-	var tbl02=document.getElementById("tbl02");
-	var c11=tbl01.children.length;
-	var c21=tbl02.children.length;
 	if(event.keyCode==9 || event.keyCode==16)
 		return false;
 	var ip = event.target || event.srcElement;
@@ -80,56 +77,19 @@ function check(){
 			}
 			else if(ip==ip2){
 				$(ip).blur();
-				location="#result";
+				location.replace("#result");
 			}
 		}
 	}
 	var w=[];
-	w[2]=[],w[3]=[];
 	if(ip1.value){
 		w[0]=calculate(tbl1,ip1);
 	}
 	if(ip2.value){
 		w[1]=calculate(tbl2,ip2);
 	}
-	if(w[0]){
-		for(var i=0;i<6;i++){
-			tbl3.children[0].children[1+i].innerText=w[0][i];
-		}
-	}
-	else{
-		for(var i=0;i<5;i++) for(var j=1;j<6;j++)
-			tbl1.children[i].children[j].innerHTML="";
-		for(var i=0;i<6;i++){
-			tbl3.children[0].children[1+i].innerText="";
-		}
-	}
-	if(w[1]){
-		for(var i=0;i<6;i++){
-			tbl3.children[1].children[1+i].innerText=w[1][i];
-		}
-	}
-	else{
-		for(var i=0;i<5;i++) for(var j=1;j<6;j++)
-			tbl2.children[i].children[j].innerHTML="";
-		for(var i=0;i<6;i++){
-			tbl3.children[1].children[1+i].innerText="";
-		}
-	}
-	if(w[0] && w[1]){
-		for(var i=0;i<6;i++){
-			w[2][i]=w[0][i]+w[1][i];
-			w[3][i]=w[2][i]/2;
-			tbl3.children[2].children[1+i].innerText=w[2][i];
-			tbl3.children[3].children[1+i].innerText=w[3][i];
-		}
-	}
-	else{
-		for(var i=0;i<6;i++){
-			tbl3.children[2].children[1+i].innerText="";
-			tbl3.children[3].children[1+i].innerText="";
-		}
-	}
+	cycle(w[0],w[1]);
+	
 }
 function avg(tbl){
 	var s=0,n=tbl.children.length;
@@ -289,7 +249,7 @@ function expkeyup(){
 			}
 			if(ip==last2){
 				$(ip).blur();
-				location="#result";
+				location.replace("#result");
 			}
 			else if(ip==last1){
 				$("#tbl02 tr input:first").focus();			
@@ -300,6 +260,98 @@ function expkeyup(){
 		}
 	}
 	perform();
+}
+function switch_mode(){
+	man_mode = !man_mode;
+	$("input[type=number]").prop("disabled",man_mode);
+	$("button.reset").click();
+	$("#man_mode").prop("checked",man_mode);
+}
+function cell_check(event){
+	var td= $(event.target || event.srcElement);
+	if(man_mode && td[0].tagName=="TD"){
+		var tr=td.parent();
+		var tbl=tr.parent();
+		var row=tbl.children().index(tr);
+		var col=tr.children().index(td)-1;
+		for(var j=1;j<6;j++){
+			tbl[0].children[row].children[j].innerHTML="";
+		}
+		tbl[0].children[row].children[col+1].innerHTML='<img src="check.png">';
+		check_man();
+	}
+}
+function cal_man(tbl){
+	var w=[6,6,2,2,4,0];
+	for(var i=0;i<5;i++){
+		var tr=$(tbl.children[i]);
+		var td=tr.children().children('img').parent();
+		var col=tr.children().index(td)-1;
+		if(col<0){
+			return false;
+		}
+		w[i]*=(5-col);
+		w[5]+=w[i];
+	}
+	return w;
+}
+function check_man(){
+	var tbl1=document.getElementById("tbl1");
+	var tbl2=document.getElementById("tbl2");
+	var w=[];
+	w[0]=cal_man(tbl1);
+	w[1]=cal_man(tbl2);
+	cycle(w[0],w[1]);
+}
+function cycle(w0,w1){
+	var tbl1=document.getElementById("tbl1");
+	var tbl2=document.getElementById("tbl2");
+	var tbl3=document.getElementById("tbl3");
+	var w=[];
+	w[0]=w0,w[1]=w1;
+	w[2]=[],w[3]=[];
+	if(w[0]){
+		for(var i=0;i<6;i++){
+			tbl3.children[0].children[1+i].innerText=w[0][i];
+		}
+	}
+	else{
+		if(!man_mode){
+			for(var i=0;i<5;i++) for(var j=1;j<6;j++)
+				tbl1.children[i].children[j].innerHTML="";
+		}
+		for(var i=0;i<6;i++){
+			tbl3.children[0].children[1+i].innerText="";
+		}
+	}
+	if(w[1]){
+		for(var i=0;i<6;i++){
+			tbl3.children[1].children[1+i].innerText=w[1][i];
+		}
+	}
+	else{
+		if(!man_mode){
+			for(var i=0;i<5;i++) for(var j=1;j<6;j++)
+				tbl2.children[i].children[j].innerHTML="";
+		}
+		for(var i=0;i<6;i++){
+			tbl3.children[1].children[1+i].innerText="";
+		}
+	}
+	if(w[0] && w[1]){
+		for(var i=0;i<6;i++){
+			w[2][i]=w[0][i]+w[1][i];
+			w[3][i]=w[2][i]/2;
+			tbl3.children[2].children[1+i].innerText=w[2][i];
+			tbl3.children[3].children[1+i].innerText=w[3][i];
+		}
+	}
+	else{
+		for(var i=0;i<6;i++){
+			tbl3.children[2].children[1+i].innerText="";
+			tbl3.children[3].children[1+i].innerText="";
+		}
+	}
 }
 $(document).ready(function(){
 	$("#c11").focus();
@@ -344,6 +396,7 @@ $(document).ready(function(){
 	$("input.ip").on("keyup", check);
 	$("input.ip").on("change", check);
 	$("button.reset").on("click", function(){
+		$('input').val('');
 		perform();
 		var tbl1=document.getElementById("tbl1");
 		var tbl2=document.getElementById("tbl2");
@@ -356,7 +409,21 @@ $(document).ready(function(){
 		for(var j=0;j<4;j++) for(var i=0;i<6;i++){
 			tbl3.children[j].children[1+i].innerText="";
 		}
-		location="#";
-		$("#c11").focus();
+		if(man_mode){
+			location.replace("#man_mode_br");
+		}
+		else{
+			location.replace("#");
+			$("#c11").focus();
+		}
+	});
+	$("#man_mode").on("click",switch_mode);
+	$("#tbl1 td").click(cell_check);
+	$("#tbl2 td").click(cell_check);
+	$(".instr-ref").click(function(){
+		location.replace("#instructions");
+	});
+	$(".man-mode-ref").click(function(){
+		location.replace("#man_mode_br");
 	});
 });
