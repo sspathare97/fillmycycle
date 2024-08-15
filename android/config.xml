@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="com.sspathare97.fillmycycle" version="1.6.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Fill My Cycle</name>
+    <description>Automatically Fill Cycle in Lab Evaluation Sheet on the back side of Index page. To generate filled cycle, enter cycle ranges, eg. Cycle 1: 1 to 5 and Cycle 2: 6 to 10; then for each experiment enter marks out of 100. Alternatively, enter average marks out of 100 for both the cycles.</description>
+    <author email="sspathare97@gmail.com">Sagar Pathare</author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <icon density="mdpi" src="res/icon/android/mdpi.png" />
+    <icon density="hdpi" src="res/icon/android/hdpi.png" />
+    <icon density="xhdpi" src="res/icon/android/xhdpi.png" />
+    <icon density="xxhdpi" src="res/icon/android/xxhdpi.png" />
+    <icon density="xxxhdpi" src="res/icon/android/xxxhdpi.png" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="AndroidWindowSplashScreenBackground" value="#ffffff" />
+    <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/icon/android/splashscreen.png"/>
+    <platform name="android">
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+        </config-file>
+    </platform>
+</widget>

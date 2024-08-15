@@ -1,0 +1,18 @@
+{
+  "name": "com.sspathare97.fillmycycle",
+  "displayName": "Fill My Cycle",
+  "version": "1.0.0",
+  "description": "Automatically Fill Cycle in Lab Evaluation Sheet on the back side of Index page. To generate filled cycle, enter cycle ranges, eg. Cycle 1: 1 to 5 and Cycle 2: 6 to 10; then for each experiment enter marks out of 100. Alternatively, enter average marks out of 100 for both the cycles.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Sagar Pathare",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova-android": "^13.0.0"
+  }
+}
